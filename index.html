@@ -12,6 +12,7 @@
   </head>
   <body>
     <div id="jstree" role="organigramme"></div>
+    <div id="jstree_2" role="organigramme"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
     <script>
@@ -22,6 +23,19 @@
       $("#jstree").jstree({
         core: {
           data: noeuds_enfants
+        }
+      });
+
+      $("#jstree_2").jstree({
+        core: {
+          data: {
+            url: function(node) {
+              return node.id === "#" ? "noeuds_parents.json" : noeuds_enfants;
+            },
+            data: function(node) {
+              return { id: node.id };
+            }
+          }
         }
       });
     </script>
