@@ -36,7 +36,9 @@
             },
             data: function(node) {
               return { id: node.id };
-            }
+            },
+            dataType: "jsonp",
+            crossDomain: true
           }
         }
       });
