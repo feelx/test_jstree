@@ -30,7 +30,9 @@
         core: {
           data: {
             url: function(node) {
-              return node.id === "#" ? "noeuds_parents.json" : noeuds_enfants;
+              return node.id === "#"
+                ? "noeuds_parents.json"
+                : "noeuds_enfants.json";
             },
             data: function(node) {
               return { id: node.id };
